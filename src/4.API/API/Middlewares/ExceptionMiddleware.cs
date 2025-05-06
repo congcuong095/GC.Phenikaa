@@ -1,9 +1,8 @@
-﻿using Domain.Exceptions;
+﻿using System.Text.Json;
+using Domain.Exceptions;
 using ExceptionLocalization;
 using Microsoft.Extensions.Localization;
 using Serilog;
-using System.Text.Json;
-
 
 namespace API.Middleware;
 
@@ -52,4 +51,3 @@ public sealed class ExceptionMiddleware : IMiddleware
         await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
     }
 }
-

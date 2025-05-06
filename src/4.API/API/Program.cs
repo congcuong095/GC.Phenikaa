@@ -1,17 +1,17 @@
+using System.Globalization;
+using System.Text;
 using API.Middleware;
 using Application.Attributes;
+using Application.Repositories;
+using Application.UnitOfWork;
+using Infrastructure.DBAgent.Postgre.Context;
+using Infrastructure.DBAgent.Postgre.Mapper;
+using Infrastructure.DBAgent.Postgre.Repositories;
+using Infrastructure.DBAgent.Postgre.UnitOfWork;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using System.Globalization;
-using Serilog;
-using System.Text;
-using Application.UnitOfWork;
-using Infrastructure.DBAgent.Postgre.Mapper;
-using Infrastructure.DBAgent.Postgre.Context;
-using Infrastructure.DBAgent.Postgre.UnitOfWork;
-using Application.Repositories;
-using Infrastructure.DBAgent.Postgre.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,8 +26,8 @@ builder.Services.AddControllers(options =>
 
 //Config attribute error to send error to Exception middleware
 builder.Services.AddScoped<ValidationFilterAttribute>();
-builder.Services.Configure<ApiBehaviorOptions>(
-    options => options.SuppressModelStateInvalidFilter = true
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+    options.SuppressModelStateInvalidFilter = true
 );
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

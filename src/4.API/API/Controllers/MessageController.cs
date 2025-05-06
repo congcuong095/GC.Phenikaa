@@ -4,7 +4,4 @@ namespace API.Controllers;
 
 [Route("api/message")]
 [ApiController]
-public class MessageController : ControllerBase
-{
-    
-}
+public class MessageController : ControllerBase { }

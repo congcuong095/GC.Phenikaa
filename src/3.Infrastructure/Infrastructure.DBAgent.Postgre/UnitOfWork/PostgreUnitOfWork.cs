@@ -1,7 +1,7 @@
-﻿using Application.UnitOfWork;
+﻿using Application.Repositories;
+using Application.UnitOfWork;
 using AutoMapper;
 using Infrastructure.DBAgent.Postgre.Context;
-using Application.Repositories;
 using Infrastructure.DBAgent.Postgre.Repositories;
 
 namespace Infrastructure.DBAgent.Postgre.UnitOfWork;

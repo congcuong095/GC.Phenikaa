@@ -1,5 +1,3 @@
 ﻿namespace Domain.Entities;
 
-public class Employee: BaseEntity
-{
-}
+public class Employee : BaseEntity { }

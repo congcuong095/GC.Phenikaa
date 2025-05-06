@@ -1,5 +1,3 @@
 ﻿namespace Infrastructure.DBAgent.Postgre.Tables;
 
-public class EmployeePostgre: BaseTable
-{
-}
+public class EmployeePostgre : BaseTable { }

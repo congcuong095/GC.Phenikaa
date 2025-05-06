@@ -34,7 +34,6 @@ public class PostgreDBContext : DbContext
     //Override Create Model in DB
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         //Set unique for column v1
         modelBuilder.Entity<EmployeePostgre>(entity =>
         {
@@ -42,4 +41,3 @@ public class PostgreDBContext : DbContext
         });
     }
 }
-

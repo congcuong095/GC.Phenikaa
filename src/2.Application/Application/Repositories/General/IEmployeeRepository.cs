@@ -2,6 +2,4 @@
 
 namespace Application.Repositories;
 
-public interface IEmployeeRepository:IRepository<Employee>
-{
-}
+public interface IEmployeeRepository : IRepository<Employee> { }

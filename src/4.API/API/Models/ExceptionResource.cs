@@ -1,5 +1,3 @@
 ﻿namespace ExceptionLocalization;
 
-public class ExceptionResource
-{
-}
+public class ExceptionResource { }
