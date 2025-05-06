@@ -6,7 +6,6 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="Entities\General\" />
         <Folder Include="Entities\Message\" />
         <Folder Include="Entities\Invoice\" />
         <Folder Include="Entities\ESignature\" />

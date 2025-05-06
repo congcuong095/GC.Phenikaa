@@ -12,5 +12,5 @@
 - run before commit : dotnet csharpier .
 
 migration
-- add migration (cd to Admin.Infrastructure.SqlServer): dotnet ef migrations add v1 --startup-project ..\Admin.API\Admin.API.csproj
-- update db (cd to Admin.Infrastructure.SqlServer): dotnet ef database update --startup-project ..\Admin.API\Admin.API.csproj
+- add migration (cd to Infrastructure.DBAgent.Postgre): dotnet ef migrations add v1 --startup-project ..\..\4.API\API\API.csproj
+- update db (cd to Infrastructure.DBAgent.Postgre): dotnet ef database update --startup-project ..\..\4.API\API\API.csproj

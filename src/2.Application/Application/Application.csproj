@@ -5,4 +5,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\1.Domain\Domain\Domain.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="DTOs\Responses\" />
+      <Folder Include="DTOs\Requests\" />
+      <Folder Include="Mapper\" />
+      <Folder Include="UseCase\Interfaces\" />
+      <Folder Include="UseCase\Implements\" />
+    </ItemGroup>
 </Project>

@@ -6,6 +6,20 @@
         <RootNamespace>API</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+        <PackageReference Include="Serilog.AspNetCore" />
         <PackageReference Include="Swashbuckle.AspNetCore" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\2.Application\Application\Application.csproj" />
+      <ProjectReference Include="..\..\3.Infrastructure\Infrastructure.DBAgent.Postgre\Infrastructure.DBAgent.Postgre.csproj" />
     </ItemGroup>
 </Project>

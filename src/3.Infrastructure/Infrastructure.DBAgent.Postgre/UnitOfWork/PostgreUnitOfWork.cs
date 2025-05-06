@@ -1,0 +1,41 @@
+﻿using Application.UnitOfWork;
+using AutoMapper;
+using Infrastructure.DBAgent.Postgre.Context;
+using Application.Repositories;
+using Infrastructure.DBAgent.Postgre.Repositories;
+
+namespace Infrastructure.DBAgent.Postgre.UnitOfWork;
+
+public class PostgreUnitOfWork : IUnitOfWork
+{
+    private readonly PostgreDBContext _context;
+
+    public IEmployeeRepository EmployeeRepository { get; }
+
+    public PostgreUnitOfWork(PostgreDBContext context, IMapper mapper)
+    {
+        _context = context;
+
+        EmployeeRepository = new PostgreEmployeeRepository(context, mapper);
+    }
+
+    public async Task BeginTransactionAsync()
+    {
+        await _context.Database.BeginTransactionAsync();
+    }
+
+    public async Task RollBackAsync()
+    {
+        await _context.Database.RollbackTransactionAsync();
+    }
+
+    public async Task CommitAsync()
+    {
+        await _context.Database.CommitTransactionAsync();
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
+}
