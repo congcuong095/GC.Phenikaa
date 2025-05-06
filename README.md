@@ -1,13 +1,14 @@
-
+# Requirements
 - .Net 8.0
-- SqlServer
-- Postgre
 
 ------------
-run code
+# Base installation
 - install dotnet tool: dotnet tool restore
 - Run husky: dotnet husky install
-             dotnet husky add pre-commit -c "dotnet husky run"
+
+-------------------------
+
+
 - run before commit : dotnet csharpier .
 
 migration
