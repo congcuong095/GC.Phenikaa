@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.DBAgent.Postgre.Migrations
 {
     [DbContext(typeof(PostgreDBContext))]
-    [Migration("20250506180248_v1")]
+    [Migration("20250507071939_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -30,23 +30,23 @@ namespace Infrastructure.DBAgent.Postgre.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("ID");
 
                     b.Property<DateTimeOffset?>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("CREATED_AT");
 
                     b.Property<DateTimeOffset?>("DeletedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
+                        .HasColumnName("DELETED_AT");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("UPDATED_AT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee");
+                    b.ToTable("EMPLOYEE");
                 });
 #pragma warning restore 612, 618
         }

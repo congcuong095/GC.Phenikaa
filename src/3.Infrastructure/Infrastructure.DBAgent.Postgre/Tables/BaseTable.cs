@@ -6,15 +6,15 @@ namespace Infrastructure.DBAgent.Postgre.Tables;
 public abstract class BaseTable
 {
     [Key]
-    [Column("id")]
+    [Column("ID")]
     public Guid Id { get; set; }
 
-    [Column("created_at")]
+    [Column("CREATED_AT")]
     public DateTimeOffset? CreatedAt { get; set; }
 
-    [Column("updated_at")]
+    [Column("UPDATED_AT")]
     public DateTimeOffset? UpdatedAt { get; set; }
 
-    [Column("deleted_at")]
+    [Column("DELETED_AT")]
     public DateTimeOffset? DeletedAt { get; set; }
 }
