@@ -1,13 +1,16 @@
+using System.Data;
 using System.Globalization;
 using System.Text;
 using API.Middleware;
 using Application.Attributes;
-using Application.Repositories;
+using Application.IGCUnitOfWork;
 using Application.UnitOfWork;
+using Application.UseCase;
 using Infrastructure.DBAgent.Postgre.Context;
 using Infrastructure.DBAgent.Postgre.Mapper;
-using Infrastructure.DBAgent.Postgre.Repositories;
 using Infrastructure.DBAgent.Postgre.UnitOfWork;
+using Infrastructure.DBGC.SqlServer.ConnectionFactory;
+using Infrastructure.DBGC.SqlServer.UnitOfWork;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -63,7 +66,14 @@ builder.Services.AddDbContext<PostgreDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Postgre"))
 );
 builder.Services.AddTransient<IUnitOfWork, PostgreUnitOfWork>();
-builder.Services.AddTransient<IEmployeeRepository, PostgreEmployeeRepository>();
+
+//MSSQL DB
+builder.Services.AddTransient<IGCUnitOfWork, SqlServerUnitOfWork>();
+builder.Services.AddScoped<ISqlServerConnectionFactory, SqlServerConnectionFactory>();
+
+//Service
+builder.Services.AddTransient<IMessageService, MessageService>();
+
 
 var app = builder.Build();
 
@@ -76,7 +86,7 @@ if (app.Environment.IsDevelopment())
 
 // Log Start up
 Console.OutputEncoding = Encoding.UTF8;
-Log.Information("Application start up now! 🚀 🚀 🚀");
+Log.Information("Application is running now! 🚀 🚀 🚀");
 
 // Localization
 app.UseRequestLocalization();

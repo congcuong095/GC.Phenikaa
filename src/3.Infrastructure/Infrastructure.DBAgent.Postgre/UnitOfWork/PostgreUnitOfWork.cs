@@ -38,4 +38,9 @@ public class PostgreUnitOfWork : IUnitOfWork
     {
         await _context.SaveChangesAsync();
     }
+
+    public void Dispose()
+    {
+        _context.Dispose();
+    }
 }

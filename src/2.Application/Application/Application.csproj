@@ -15,7 +15,5 @@
       <Folder Include="DTOs\Responses\" />
       <Folder Include="DTOs\Requests\" />
       <Folder Include="Mapper\" />
-      <Folder Include="UseCase\Interfaces\" />
-      <Folder Include="UseCase\Implements\" />
     </ItemGroup>
 </Project>
