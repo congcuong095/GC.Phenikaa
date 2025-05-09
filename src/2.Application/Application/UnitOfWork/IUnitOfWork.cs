@@ -2,7 +2,7 @@
 
 namespace Application.UnitOfWork;
 
-public interface IUnitOfWork: IDisposable
+public interface IUnitOfWork : IDisposable
 {
     IEmployeeRepository EmployeeRepository { get; }
     Task BeginTransactionAsync();

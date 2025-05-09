@@ -74,7 +74,6 @@ builder.Services.AddScoped<ISqlServerConnectionFactory, SqlServerConnectionFacto
 //Service
 builder.Services.AddTransient<IMessageService, MessageService>();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
