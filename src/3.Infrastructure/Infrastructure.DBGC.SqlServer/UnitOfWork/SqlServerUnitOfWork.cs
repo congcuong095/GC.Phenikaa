@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Application.GCRepositories;
-using Application.IGCUnitOfWork;
+using Application.GCUnitOfWork;
 using AutoMapper;
 using Infrastructure.DBGC.SqlServer.ConnectionFactory;
 using Infrastructure.DBGC.SqlServer.Repositories;
@@ -14,6 +14,8 @@ public class SqlServerUnitOfWork : IGCUnitOfWork
 
     public IEmployeeCertificateRepository EmployeeCertificate { get; }
 
+    public IAgentMessageRepository AgentMessage { get; }
+
     public SqlServerUnitOfWork(ISqlServerConnectionFactory connectionFactory, IMapper mapper)
     {
         _connection = connectionFactory.CreateConnection();
@@ -24,6 +26,7 @@ public class SqlServerUnitOfWork : IGCUnitOfWork
             _transaction,
             mapper
         );
+        AgentMessage = new SqlServerAgentMessageRepository(_connection, _transaction, mapper);
     }
 
     public void Commit()

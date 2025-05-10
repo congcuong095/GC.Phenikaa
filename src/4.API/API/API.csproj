@@ -22,5 +22,7 @@
       <ProjectReference Include="..\..\2.Application\Application\Application.csproj" />
       <ProjectReference Include="..\..\3.Infrastructure\Infrastructure.DBAgent.Postgre\Infrastructure.DBAgent.Postgre.csproj" />
       <ProjectReference Include="..\..\3.Infrastructure\Infrastructure.DBGC.SqlServer\Infrastructure.DBGC.SqlServer.csproj" />
+      <ProjectReference Include="..\..\3.Infrastructure\Infrastructure.Message.SMS\Infrastructure.Message.SMS.csproj" />
+      <ProjectReference Include="..\..\3.Infrastructure\Infrastructure.Message.Zalo\Infrastructure.Message.Zalo.csproj" />
     </ItemGroup>
 </Project>

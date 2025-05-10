@@ -1,6 +1,8 @@
-﻿namespace Application.UseCase;
+﻿using Application.DTOs;
+
+namespace Application.UseCase;
 
 public interface IMessageService
 {
-    void SendMessageToCustomer(string message);
+    Task<SendMessageResponse> SendMessageToCustomer(string message, string customer);
 }

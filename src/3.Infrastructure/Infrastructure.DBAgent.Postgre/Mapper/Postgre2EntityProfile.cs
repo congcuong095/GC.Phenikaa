@@ -11,5 +11,14 @@ public class Postgre2EntityProfile : Profile
         //map all table to entity
         CreateMap<EmployeePostgre, Employee>();
         CreateMap<Employee, EmployeePostgre>();
+
+        CreateMap<ZaloMessageLog, ZaloMessageLogPostgre>();
+        CreateMap<ZaloMessageLogPostgre, ZaloMessageLog>();
+
+        CreateMap<ZaloToken, ZaloTokenPostgre>();
+        CreateMap<ZaloTokenPostgre, ZaloToken>();
+
+        CreateMap<SMSMessageLogPostgre, SMSMessageLog>();
+        CreateMap<SMSMessageLog, SMSMessageLogPostgre>();
     }
 }

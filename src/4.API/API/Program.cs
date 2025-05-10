@@ -3,7 +3,8 @@ using System.Globalization;
 using System.Text;
 using API.Middleware;
 using Application.Attributes;
-using Application.IGCUnitOfWork;
+using Application.GCUnitOfWork;
+using Application.MessageInterface;
 using Application.UnitOfWork;
 using Application.UseCase;
 using Infrastructure.DBAgent.Postgre.Context;
@@ -11,6 +12,8 @@ using Infrastructure.DBAgent.Postgre.Mapper;
 using Infrastructure.DBAgent.Postgre.UnitOfWork;
 using Infrastructure.DBGC.SqlServer.ConnectionFactory;
 using Infrastructure.DBGC.SqlServer.UnitOfWork;
+using Infrastructure.Message.SMS.SendMessage;
+using Infrastructure.Message.Zalo.SendMessage;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -70,6 +73,10 @@ builder.Services.AddTransient<IUnitOfWork, PostgreUnitOfWork>();
 //MSSQL DB
 builder.Services.AddTransient<IGCUnitOfWork, SqlServerUnitOfWork>();
 builder.Services.AddScoped<ISqlServerConnectionFactory, SqlServerConnectionFactory>();
+
+//Message Infrastructure
+builder.Services.AddTransient<IMessageSMS, SendSMS>();
+builder.Services.AddTransient<IMessageZalo, SendZalo>();
 
 //Service
 builder.Services.AddTransient<IMessageService, MessageService>();

@@ -11,12 +11,18 @@ public class PostgreUnitOfWork : IUnitOfWork
     private readonly PostgreDBContext _context;
 
     public IEmployeeRepository EmployeeRepository { get; }
+    public IZaloMessageLogRepository ZaloMessageLogRepository { get; }
+    public IZaloTokenRepository ZaloTokenRepository { get; }
+    public ISMSMessageLogRepository SMSMessageLogRepository { get; }
 
     public PostgreUnitOfWork(PostgreDBContext context, IMapper mapper)
     {
         _context = context;
 
         EmployeeRepository = new PostgreEmployeeRepository(context, mapper);
+        ZaloMessageLogRepository = new PostgreZaloMessageLogRepository(context, mapper);
+        ZaloTokenRepository = new PostgreZaloTokenRepository(context, mapper);
+        SMSMessageLogRepository = new PostgreSMSMessageLogRepository(context, mapper);
     }
 
     public async Task BeginTransactionAsync()

@@ -30,7 +30,7 @@ public abstract class PostgreAbstractRepository<T, TTable> : IRepository<T>
         var itemMap = _mapper.Map<TTable>(item);
 
         if (itemMap == null)
-            throw new CustomInternalErrorException("InternalErrorER10");
+            throw new CustomInternalErrorException("Infrastructure.Repositories.CANNOT_MAP_ENTITY");
 
         await _context.AddAsync(itemMap);
         return _mapper.Map<T>(itemMap);
@@ -59,7 +59,7 @@ public abstract class PostgreAbstractRepository<T, TTable> : IRepository<T>
         var itemMap = _mapper.Map<TTable>(item);
 
         if (itemMap == null)
-            throw new CustomInternalErrorException("NOT_FOUND_ENTITY");
+            throw new CustomInternalErrorException("Infrastructure.Repositories.CANNOT_MAP_ENTITY");
 
         _context.Update(itemMap);
         return _mapper.Map<T>(itemMap);
@@ -69,7 +69,7 @@ public abstract class PostgreAbstractRepository<T, TTable> : IRepository<T>
     {
         TTable? item = await _context.Set<TTable>().SingleOrDefaultAsync(x => x.Id == id);
         if (item == null)
-            throw new CustomNotFoundException("NOT_FOUND_ENTITY");
+            throw new CustomNotFoundException("Infrastructure.Repositories.NOT_FOUND_ENTITY");
 
         _context.Remove(item);
         return true;
@@ -79,7 +79,7 @@ public abstract class PostgreAbstractRepository<T, TTable> : IRepository<T>
     {
         TTable? item = await _context.Set<TTable>().SingleOrDefaultAsync(x => x.Id == id);
         if (item == null)
-            throw new CustomNotFoundException("NOT_FOUND_ENTITY");
+            throw new CustomNotFoundException("Infrastructure.Repositories.NOT_FOUND_ENTITY");
 
         item.DeletedAt = DateTimeOffset.UtcNow;
         _context.Update(item);
@@ -93,7 +93,7 @@ public abstract class PostgreAbstractRepository<T, TTable> : IRepository<T>
             .IgnoreQueryFilters()
             .SingleOrDefaultAsync(x => x.Id == id);
         if (item == null)
-            throw new CustomNotFoundException("NOT_FOUND_ENTITY");
+            throw new CustomNotFoundException("Infrastructure.Repositories.NOT_FOUND_ENTITY");
         item.DeletedAt = null;
         _context.Update(item);
         return true;

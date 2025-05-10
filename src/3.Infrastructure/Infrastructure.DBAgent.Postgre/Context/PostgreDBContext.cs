@@ -6,6 +6,9 @@ namespace Infrastructure.DBAgent.Postgre.Context;
 public class PostgreDBContext : DbContext
 {
     public DbSet<EmployeePostgre> Employee { get; set; }
+    public DbSet<ZaloMessageLogPostgre> ZaloMessageLog { get; set; }
+    public DbSet<ZaloTokenPostgre> ZaloToken { get; set; }
+    public DbSet<SMSMessageLogPostgre> SMSMessageLog { get; set; }
 
     //Override constructor DbContext
     public PostgreDBContext(DbContextOptions<PostgreDBContext> options)
@@ -34,8 +37,23 @@ public class PostgreDBContext : DbContext
     //Override Create Model in DB
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //Set unique for column v1
+        //Setup soft delete
         modelBuilder.Entity<EmployeePostgre>(entity =>
+        {
+            entity.HasQueryFilter(u => !u.DeletedAt.HasValue);
+        });
+
+        modelBuilder.Entity<ZaloMessageLogPostgre>(entity =>
+        {
+            entity.HasQueryFilter(u => !u.DeletedAt.HasValue);
+        });
+
+        modelBuilder.Entity<ZaloTokenPostgre>(entity =>
+        {
+            entity.HasQueryFilter(u => !u.DeletedAt.HasValue);
+        });
+
+        modelBuilder.Entity<SMSMessageLogPostgre>(entity =>
         {
             entity.HasQueryFilter(u => !u.DeletedAt.HasValue);
         });

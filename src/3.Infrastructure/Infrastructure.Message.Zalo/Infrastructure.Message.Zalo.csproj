@@ -5,4 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\2.Application\Application\Application.csproj" />
+    </ItemGroup>
 </Project>

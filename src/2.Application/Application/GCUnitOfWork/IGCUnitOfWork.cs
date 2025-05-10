@@ -1,10 +1,11 @@
 ﻿using Application.GCRepositories;
 
-namespace Application.IGCUnitOfWork;
+namespace Application.GCUnitOfWork;
 
 public interface IGCUnitOfWork
 {
     IEmployeeCertificateRepository EmployeeCertificate { get; }
+    IAgentMessageRepository AgentMessage { get; }
     void Commit();
     void Rollback();
 }

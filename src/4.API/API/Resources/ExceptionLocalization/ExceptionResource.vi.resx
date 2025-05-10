@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NOT_FOUND_ENTITY" xml:space="preserve">
+  <data name="Application.DTOs.CUSTOMER_IS_REQUIRED" xml:space="preserve">
+    <value>Trường Customer là bắt buộc</value>
+  </data>
+  <data name="Application.DTOs.MESSAGE_IS_REQUIRED" xml:space="preserve">
+    <value>Trường Message là bắt buộc</value>
+  </data>
+  <data name="Application.DTOs.MESSAGE_MAX_LENGTH_500" xml:space="preserve">
+    <value>Trường Message có tối đa 500 ký tự</value>
+  </data>
+  <data name="Infrastructure.Repositories.CANNOT_MAP_ENTITY" xml:space="preserve">
+    <value>Không thể map entity</value>
+  </data>
+  <data name="Infrastructure.Repositories.NOT_FOUND_ENTITY" xml:space="preserve">
     <value>Không tìm thấy dữ liệu</value>
   </data>
 </root>

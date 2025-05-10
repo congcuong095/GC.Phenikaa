@@ -1,6 +1,6 @@
 ﻿namespace Application.MessageInterface;
 
-public interface IMessage
+public interface IMessageSMS
 {
     void SendMessage(string message);
 }
